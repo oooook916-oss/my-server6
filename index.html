@@ -1,406 +1,231 @@
 <!DOCTYPE html>
-<!-- saved from url=(0028)https://xpritest.vercel.app/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>✖-Private</title>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✖-Private</title>
 
-  <link rel="icon" href="https://xpritest.vercel.app/assets/images/icon.ico" type="image/x-icon">
-  <link href="./✖-Private_files/main.css" rel="stylesheet">
+    <link rel="icon" href="https://xpritest.vercel.app/assets/images/icon.ico" type="image/x-icon">
+    <link href="./✖-Private_files/main.css" rel="stylesheet">
 
-  <!-- Font Awesome (for icons) -->
-  <link rel="stylesheet" href="./✖-Private_files/all.min.css">
-  <script src="./✖-Private_files/jquery.min.js.تنزيل"></script>
-	<link rel="stylesheet" type="text/css" href="./✖-Private_files/toastr.min.css">
-	<script src="./✖-Private_files/toastr.min.js.تنزيل" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./✖-Private_files/all.min.css">
+    <script src="./✖-Private_files/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./✖-Private_files/toastr.min.css">
+    <script src="./✖-Private_files/toastr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <!-- IMPORTANT: overlay must run BEFORE any other JS -->
-
-<style>.ogx-chat{position:fixed;left:12px;bottom:30px;width:360px;height:240px;display:flex;flex-direction:column;
-  background:rgba(10,10,10,.40);border:1px solid rgba(255,255,255,.1);
-  border-radius:12px;color:#fff;font:12px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;z-index:2147483647}
-  .ogx-chat-header{display:flex;gap:6px;align-items:center;padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.08)}
-  .ogx-chat-badge{font-weight:600;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.08)}
-  .ogx-chat-toggle{margin-left:auto;display:flex;gap:6px}
-  .ogx-chat-toggle button{padding:4px 8px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);
-  color:#fff;border-radius:999px;cursor:pointer}
-  .ogx-chat-toggle button.active{background:rgba(255,255,255,.25)}
-  .ogx-chat-body{flex:1;overflow:auto;padding:8px}
-  .ogx-chat-msg{margin:4px 0}.ogx-chat-time{opacity:.6;margin-right:6px}.ogx-chat-name{font-weight:600;margin-right:6px}
-  .ogx-chat-foot{display:flex;gap:6px;padding:8px;border-top:1px solid rgba(255,255,255,.08)}
-  .ogx-chat-foot input{flex:1;padding:6px 8px;border-radius:8px;border:1px solid rgba(255,255,255,.18);
-  background:rgba(0,0,0,.25);color:#fff}
-  .ogx-chat-foot button{padding:6px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.08);color:#fff;cursor:pointer}</style></head>
+    <style>
+        .ogx-chat {
+            position: fixed; left: 12px; bottom: 30px; width: 360px; height: 240px; display: flex; flex-direction: column;
+            background: rgba(10, 10, 10, .40); border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 12px; color: #fff; font: 12px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; z-index: 2147483647
+        }
+        .ogx-chat-header { display: flex; gap: 6px; align-items: center; padding: 6px 8px; border-bottom: 1px solid rgba(255, 255, 255, .08) }
+        .ogx-chat-badge { font-weight: 600; padding: 4px 8px; border-radius: 999px; background: rgba(255, 255, 255, .08) }
+        .ogx-chat-toggle { margin-left: auto; display: flex; gap: 6px }
+        .ogx-chat-toggle button { padding: 4px 8px; border: 1px solid rgba(255, 255, 255, .15); background: rgba(255, 255, 255, .06); color: #fff; border-radius: 999px; cursor: pointer }
+        .ogx-chat-toggle button.active { background: rgba(255, 255, 255, .25) }
+        .ogx-chat-body { flex: 1; overflow: auto; padding: 8px }
+        .ogx-chat-msg { margin: 4px 0 }
+        .ogx-chat-time { opacity: .6; margin-right: 6px }
+        .ogx-chat-name { font-weight: 600; margin-right: 6px }
+        .ogx-chat-foot { display: flex; gap: 6px; padding: 8px; border-top: 1px solid rgba(255, 255, 255, .08) }
+        .ogx-chat-foot input { flex: 1; padding: 6px 8px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, .18); background: rgba(0, 0, 0, .25); color: #fff }
+        .ogx-chat-foot button { padding: 6px 10px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, .18); background: rgba(255, 255, 255, .08); color: #fff; cursor: pointer }
+    </style>
+</head>
 <body>
-  <!-- Game Display -->
-  <canvas id="game-display" width="1920" height="965"></canvas>
+    <canvas id="game-display" width="1920" height="965"></canvas>
 
-  <!-- Hud Display -->
-  <div id="hud-display" class="pointer-events-none visible">
-    <canvas id="leaderboard-canvas" width="221" height="244"></canvas>
-  </div>
-  <canvas id="minimap-canvas" width="193" height="193"></canvas>
+    <div id="hud-display" class="pointer-events-none visible">
+        <canvas id="leaderboard-canvas" width="221" height="244"></canvas>
+    </div>
+    <canvas id="minimap-canvas" width="193" height="193"></canvas>
 
-  <!-- Stats Display -->
-  <div id="stats-display" class="pointer-events-none">
-    <div id="stats-fps">FPS: 163</div>
-    <div id="stats-mass">Mass: --</div>
-  </div>
+    <div id="stats-display" class="pointer-events-none">
+        <div id="stats-fps">FPS: 163</div>
+        <div id="stats-mass">Mass: --</div>
+    </div>
 
-  <!-- Menu Display -->
-  <div id="menu-display" class="pointer-events-all visible">
-    <div id="menu-display-center" style="transform: translate(-50%, -50%) scale(1);">
+    <div id="menu-display" class="pointer-events-all visible">
+        <div id="menu-display-center" style="transform: translate(-50%, -50%) scale(1);">
+            <div id="menu-overlay">
+                <div class="control-bar">
+                    <div class="bar-button-container bar-bgs">
+                        <div class="bar-button-bg left settings"></div>
+                        <div class="bar-button-bg center dummy"></div>
+                        <div class="bar-button-bg right play"></div>
+                        <div class="bar-button-bg right spectate"></div>
+                        <div class="bar-button-bg right inputs"></div>
+                    </div>
 
-      <div id="menu-overlay">
-        <!-- ONYX-style bar -->
-        <div class="control-bar">
-          <!-- background trapezoids -->
-          <div class="bar-button-container bar-bgs">
-            <div class="bar-button-bg left settings"></div>
-            <div class="bar-button-bg center dummy"></div>
-            <div class="bar-button-bg right play"></div>
-            <div class="bar-button-bg right spectate"></div>
-            <div class="bar-button-bg right inputs"></div>
-          </div>
+                    <div class="bar-button-container bar-buttons">
+                        <div class="bar-button" id="open-settings">
+                            <i class="fas fa-cog"></i>
+                            <div class="text"><span>Settings</span></div>
+                        </div>
+                        <div class="bar-button dummy"></div>
+                        <div class="bar-button" id="play">
+                            <i class="fas fa-play"></i>
+                            <div class="text"><span>Play</span></div>
+                        </div>
+                        <div class="bar-button" id="spectate">
+                            <i class="fa-solid fa-eye"></i>
+                            <div class="text"><span>Spectate</span></div>
+                        </div>
+                        <div class="bar-button" id="restart">
+                            <i class="fas fa-redo-alt"></i>
+                            <div class="text"><span>Re</span></div>
+                        </div>
+                    </div>
 
-          <!-- actual clickable buttons (keep your IDs) -->
-          <div class="bar-button-container bar-buttons">
-            <div class="bar-button" id="open-settings">
-              <i class="fas fa-cog"></i>
-              <div class="text"><span>Settings</span></div>
+                    <div class="bar-circle-outer">
+                        <div class="bar-circle">
+                            <div class="skin-preview" id="skin-preview" style="background-image: none;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-container">
+                    <div class="player-inputs">
+                        <input id="tag" class="form-control input-tag" placeholder="Tag" maxlength="5">
+                        <input id="nickname" class="form-control input-nickname" placeholder="Nickname" maxlength="15">
+                        <input id="nickname2" class="form-control input-nickname" placeholder="Nickname 2" maxlength="15">
+                        <div class="skin-row">
+                            <input id="customSkin1" class="form-control input-skin" placeholder="Skin1 URL" maxlength="300">
+                            <input id="customSkin2" class="form-control input-skin" placeholder="Skin2 URL" maxlength="300">
+                        </div>
+                    </div>
+
+                    <div class="server-select">
+                        <select class="server-select-input" id="servers">
+                            <option value="wss://eu.senpa.io:2001/" selected="">[EU FFA] Nemesis</option>
+                            <option value="wss://eu.senpa.io:6001/">[EU Macro] Beta 1</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-  
-            <div class="bar-button dummy"></div>
-  
-            <div class="bar-button" id="play">
-              <i class="fas fa-play"></i>
-              <div class="text"><span>Play</span></div>
-            </div>
-
-            <div class="bar-button" id="spectate">
-              <i class="fa-solid fa-eye"></i>
-              <div class="text"><span>Spectate</span></div>
-            </div>
-
-            <div class="bar-button" id="restart">
-              <i class="fas fa-redo-alt"></i>
-              <div class="text"><span>Re</span></div>
-            </div>
-          </div>
-
-          <!-- skin circle in the middle (same as Onyx) -->
-          <div class="bar-circle-outer">
-            <div class="bar-circle">
-              <div class="skin-preview" id="skin-preview" style="background-image: none;"></div>
-            </div>
-          </div>
         </div>
+    </div>
 
-        <!-- your existing card, unchanged (below the bar) -->
-        <div class="menu-container">
-  
-          <div class="player-inputs">
-            <input id="tag" class="form-control input-tag" placeholder="Tag" maxlength="5">
-            <input id="nickname" class="form-control input-nickname" placeholder="Nickname" maxlength="15">
-            <input id="nickname2" class="form-control input-nickname" placeholder="Nickname 2" maxlength="15">
-            <div class="skin-row">
-              <input id="customSkin1" class="form-control input-skin" placeholder="Skin1 URL" maxlength="300">
-              <input id="customSkin2" class="form-control input-skin" placeholder="Skin2 URL" maxlength="300">
+    <div id="settings-display" class="pointer-events-all hidden">
+        <div id="settings-display-center" style="transform: translate(-50%, -50%) scale(1);">
+            <div id="settings">
+                <div id="settings-close-btn">✘</div>
+                <div id="settings-container">
+                    <div class="tabs">
+                        <div class="tab active" data-tab="game-settings"><i class="fas fa-cog"></i>Game</div>
+                        <div class="tab" data-tab="controls"><i class="fas fa-keyboard"></i>Controls</div>
+                        <div class="tab" data-tab="mouse"><i class="fas fa-mouse"></i>Mouse</div>
+                    </div>
+                    <div class="tabs-container">
+                        <div class="tab-content active" id="game-settings">
+                            <div class="option">
+                                <span>Animation delay: <span class="slider-value" id="animationDelayValue">112</span></span>
+                                <input type="range" class="setting-slider" id="animationDelay" min="1" max="200" value="120">
+                            </div>
+                            <div class="option">
+                                <span>Cell transparency: <span class="slider-value" id="cellTransparencyValue">1</span></span>
+                                <input type="range" class="setting-slider" id="cellTransparency" min="0.2" max="1" value="1" step="0.1">
+                            </div>
+                            <div class="option">
+                                <span>Nicknames:</span>
+                                <label class="toggle-switch"><input type="checkbox" id="showNicknames"><span class="slider"></span></label>
+                            </div>
+                            <div class="option">
+                                <span>Mass:</span>
+                                <label class="toggle-switch"><input type="checkbox" id="showMass"><span class="slider"></span></label>
+                            </div>
+                            <div class="option">
+                                <span>Skins:</span>
+                                <label class="toggle-switch"><input type="checkbox" id="showSkins"><span class="slider"></span></label>
+                            </div>
+                            <div class="option">
+                                <span>Grid:</span>
+                                <label class="toggle-switch"><input type="checkbox" id="showGrid"><span class="slider"></span></label>
+                            </div>
+                            <div class="option">
+                                <span>Sectors:</span>
+                                <label class="toggle-switch"><input type="checkbox" id="showSectors"><span class="slider"></span></label>
+                            </div>
+                            <div class="option">
+                                <span>Show pellets:</span>
+                                <label class="toggle-switch"><input type="checkbox" id="showPellets"><span class="slider"></span></label>
+                            </div>
+                            <div class="option">
+                                <span>Cursor tracker:</span>
+                                <label class="toggle-switch"><input type="checkbox" id="showCursorLines"><span class="slider"></span></label>
+                            </div>
+                            <div class="option">
+                                <span>Debug mode:</span>
+                                <label class="toggle-switch"><input type="checkbox" id="showDebug"><span class="slider"></span></label>
+                            </div>
+                            <label for="BACKGROUND">Enter your bg:</label>
+                            <input type="text" id="BACKGROUND" name="BACKGROUND" placeholder="PUT A LINK">
+                        </div>
+
+                        <div class="tab-content" id="controls">
+                            <div class="option"><span>Macro feed:</span><input id="macroFeedKey" class="hotkey-input" value="KeyZ"></div>
+                            <div class="option"><span>Split:</span><input id="splitKey" class="hotkey-input" value="Space"></div>
+                            <div class="option"><span>Doublesplit:</span><input id="doubleSplitKey" class="hotkey-input" value="KeyA"></div>
+                            <div class="option"><span>Tricksplit:</span><input id="tricksplitKey" class="hotkey-input" value="ShiftLeft"></div>
+                            <div class="option"><span>Switch player:</span><input id="switchPlayerkey" class="hotkey-input" value="Tab"></div>
+                            <div class="option"><span>Toggle background:</span><input id="toggleBackgroundKey" class="hotkey-input" value="KeyB"></div>
+                        </div>
+
+                        <div class="tab-content" id="mouse">
+                            <div class="option">
+                                <span>Left click:</span>
+                                <select class="mouseActions" id="leftClick">
+                                    <option value="noAction">No action</option>
+                                    <option value="macroFeed">Macro Feed</option>
+                                    <option value="split">Split</option>
+                                    <option value="doubleSplit">Doublesplit</option>
+                                    <option value="tricksplit" selected="">Tricksplit</option>
+                                    <option value="switchPlayer">Switch player</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-  
-          <div class="server-select">
-            <select class="server-select-input" id="servers">
-              <option value="wss://eu.senpa.io:2001/" selected="">[EU FFA] Nemesis</option>
-              <option value="wss://eu.senpa.io:6001/">[EU Macro] Beta 1</option>
-            </select>
-          </div>
         </div>
-      </div>
-  
     </div>
-  </div>
 
-
-  <!-- Settings Display -->
-  <div id="settings-display" class="pointer-events-all hidden">
-    <div id="settings-display-center" style="transform: translate(-50%, -50%) scale(1);">
-      <div id="settings">
-        <div id="settings-close-btn">✘</div>
-        <div id="settings-container">
-          <div class="tabs">
-            <div class="tab active" data-tab="game-settings">
-              <i class="fas fa-cog"></i>Game
+    <script>
+        window.toastr = window.toastr || {};
+        window.toastr.options = {
+            closeButton: true,
+            debug: false,
+            newestOnTop: false,
+            progressBar: true,
+            positionClass: 'toast-top-center',
+            preventDuplicates: false,
+            showDuration: '1000',
+            hideDuration: '1000',
+            timeOut: '5000',
+            extendedTimeOut: '1000',
+            showEasing: 'swing',
+            hideEasing: 'linear',
+            showMethod: 'fadeIn',
+            hideMethod: 'fadeOut',
+        };
+    </script>
+    <script src="./✖-Private_files/gifler.min.js"></script>
+    <script src="./✖-Private_files/main.bundle.js"></script>
+    <script src="./✖-Private_files/chat.js"></script>
+    
+    <div class="ogx-chat">
+        <div class="ogx-chat-header">
+            <span class="ogx-chat-badge" id="ogxRoomLabel">FFA • GLOBAL</span>
+            <div class="ogx-chat-toggle">
+                <button id="ogxBtnGlobal" class="active">Global</button>
+                <button id="ogxBtnParty">Party</button>
             </div>
-            <div class="tab" data-tab="controls">
-              <i class="fas fa-keyboard"></i>Controls
-            </div>
-            <div class="tab" data-tab="mouse">
-              <i class="fas fa-mouse"></i>Mouse
-            </div>
-          </div>
-          <div class="tabs-container">
-            <div class="tab-content active" id="game-settings">
-              <div class="option">
-                <span>Animation delay: <span class="slider-value" id="animationDelayValue">112</span></span>
-                <input type="range" class="setting-slider" id="animationDelay" min="1" max="200" value="120">
-              </div>
-              <div class="option">
-                <span>Cell transparency: <span class="slider-value" id="cellTransparencyValue">1</span></span>
-                <input type="range" class="setting-slider" id="cellTransparency" min="0.2" max="1" value="1" step="0.1">
-              </div>
-              <div class="option">
-                <span>Nicknames:</span>
-                <label class="toggle-switch">
-                  <input type="checkbox" id="showNicknames">
-                  <span class="slider"></span>
-                </label>
-              </div>
-              <div class="option">
-                <span>Mass:</span>
-                <label class="toggle-switch">
-                  <input type="checkbox" id="showMass">
-                  <span class="slider"></span>
-                </label>
-              </div>
-              <div class="option">
-                <span>Skins:</span>
-                <label class="toggle-switch">
-                  <input type="checkbox" id="showSkins">
-                  <span class="slider"></span>
-                </label>
-              </div>
-              <div class="option">
-                <span>Grid:</span>
-                <label class="toggle-switch">
-                  <input type="checkbox" id="showGrid">
-                  <span class="slider"></span>
-                </label>
-              </div>
-              <div class="option">
-                <span>Sectors:</span>
-                <label class="toggle-switch">
-                  <input type="checkbox" id="showSectors">
-                  <span class="slider"></span>
-                </label>
-              </div>
-              <div class="option">
-                <span>Show pellets:</span>
-                <label class="toggle-switch">
-                  <input type="checkbox" id="showPellets">
-                  <span class="slider"></span>
-                </label>
-              </div>
-              <div class="option">
-                <span>Cursor tracker:</span>
-                <label class="toggle-switch">
-                  <input type="checkbox" id="showCursorLines">
-                  <span class="slider"></span>
-                </label>
-              </div>
-              <div class="option">
-                <span>Debug mode:</span>
-                <label class="toggle-switch">
-                  <input type="checkbox" id="showDebug">
-                  <span class="slider"></span>
-                </label>
-              </div>
-
-              <label for="name">Enter your bg:</label>
-              <input type="text" id="BACKGROUND" name="BACKGROUND" placeholder="PUT A LINK">
-            </div>
-
-            <div class="tab-content" id="controls">
-              <div class="option">
-                <span>Macro feed:</span>
-                <input id="macroFeedKey" class="hotkey-input" value="KeyZ">
-              </div>
-              <div class="option">
-                <span>Split:</span>
-                <input id="splitKey" class="hotkey-input" value="Space">
-              </div>
-              <div class="option">
-                <span>Doublesplit:</span>
-                <input id="doubleSplitKey" class="hotkey-input" value="KeyA">
-              </div>
-              <div class="option">
-                <span>Tricksplit:</span>
-                <input id="tricksplitKey" class="hotkey-input" value="ShiftLeft">
-              </div>
-              <div class="option">
-                <span>Switch player:</span>
-                <input id="switchPlayerkey" class="hotkey-input" value="Tab">
-              </div>
-              <div class="option">
-                <span>Toggle background:</span>
-                <input id="toggleBackgroundKey" class="hotkey-input" value="KeyB">
-              </div>
-            </div>
-
-            <div class="tab-content" id="mouse">
-              <div class="option">
-                <span>Left click:</span>
-                <select class="mouseActions" id="leftClick">
-                  <option value="noAction">No action</option>
-                  <option value="macroFeed">Macro Feed</option>
-                  <option value="split">Split</option>
-                  <option value="doubleSplit">Doublesplit</option>
-                  <option value="tricksplit" selected="">Tricksplit</option>
-                  <option value="switchPlayer">Switch player</option>
-                </select>
-              </div>
-              <div class="option">
-                <span>Middle click:</span>
-                <select class="mouseActions" id="middleClick">
-                  <option value="noAction" selected="">No action</option>
-                  <option value="macroFeed">Macro Feed</option>
-                  <option value="split">Split</option>
-                  <option value="doubleSplit">Doublesplit</option>
-                  <option value="tricksplit">Tricksplit</option>
-                  <option value="switchPlayer">Switch player</option>
-                </select>
-              </div>
-              <div class="option">
-                <span>Right click:</span>
-                <select class="mouseActions" id="rightClick">
-                  <option value="noAction" selected="">No action</option>
-                  <option value="macroFeed">Macro Feed</option>
-                  <option value="split">Split</option>
-                  <option value="doubleSplit">Doublesplit</option>
-                  <option value="tricksplit">Tricksplit</option>
-                  <option value="switchPlayer">Switch player</option>
-                </select>
-              </div>
-            </div>
-
-          </div>
         </div>
-      </div>
+        <div class="ogx-chat-body" id="ogxLog">
+            <div class="ogx-chat-msg"><span class="ogx-chat-time">[14:41]</span><span class="ogx-chat-name">•</span> Error</div>
+            <div class="ogx-chat-msg"><span class="ogx-chat-time">[14:41]</span><span class="ogx-chat-name">•</span> Disconnected</div>
+        </div>
     </div>
-  </div>
-
-  <!-- Gallery Display -->
-  <div id="gallery-display" class="pointer-events-all hidden">
-    <div id="gallery-display-center" style="transform: translate(-50%, -50%) scale(1);">
-      <div id="gallery">
-        <div id="settings-close-btn">✘</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toastr options (overlay loads toastr later) -->
-  <script>
-    window.toastr = window.toastr || {};
-    window.toastr.options = {
-      closeButton: true,
-      debug: false,
-      newestOnTop: false,
-      progressBar: true,
-      positionClass: 'toast-top-center',
-      preventDuplicates: false,
-      showDuration: '1000',
-      hideDuration: '1000',
-      timeOut: '5000',
-      extendedTimeOut: '1000',
-      showEasing: 'swing',
-      hideEasing: 'linear',
-      showMethod: 'fadeIn',
-      hideMethod: 'fadeOut',
-    };
-  </script>
-  <script src="./✖-Private_files/gifler.min.js.تنزيل"></script>
-  <script src="./✖-Private_files/main.bundle.js.تنزيل"></script>
-  <script src="./✖-Private_files/chat.js.تنزيل"></script><div class="ogx-chat">
-  <div class="ogx-chat-header">
-    <span class="ogx-chat-badge" id="ogxRoomLabel">FFA • GLOBAL</span>
-    <div class="ogx-chat-toggle">
-      <button id="ogxBtnGlobal" class="active">Global</button>
-      <button id="ogxBtnParty">Party</button>
-    </div>
-  </div>
-  <div class="ogx-chat-body" id="ogxLog"><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:41]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:41]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:41]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:41]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:41]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:41]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:41]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:41]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:41]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:41]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:41]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:41]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:41]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:41]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:42]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:42]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:42]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:42]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:42]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:42]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:42]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:42]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:43]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:43]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:43]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:43]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:43]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:43]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:43]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:43]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:44]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:44]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:44]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:44]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:44]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:44]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:44]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:44]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:45]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:45]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:45]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:45]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:45]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:45]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:45]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:45]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:46]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:46]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:46]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:46]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:46]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:46]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:46]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:46]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:47]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:47]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:47]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:47]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:47]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:47]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:47]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:47]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:48]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:48]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:48]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:48]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:48]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:48]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:48]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:48]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:49]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:49]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:49]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:49]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:49]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:49]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:49]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:49]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:50]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:50]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:50]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:50]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:50]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:50]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:50]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:50]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:51]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:51]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:51]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:51]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:51]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:51]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:51]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:51]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:52]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:52]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:52]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:52]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:52]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:52]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:53]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:53]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:53]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:53]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:53]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:53]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:53]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:53]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:54]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:54]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:54]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:54]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:54]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:54]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:54]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:54]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:55]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:55]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:55]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:55]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:55]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:55]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:55]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:55]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:56]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:56]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:56]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:56]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:56]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:56]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:56]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:56]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:57]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:57]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:57]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:57]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:57]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:57]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:57]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:57]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:58]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:58]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:58]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:58]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:58]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:58]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:58]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:58]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:59]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:59]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:59]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:59]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:59]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:59]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:59]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[14:59]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[15:00]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[15:00]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[15:00]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[15:00]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[15:00]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[15:00]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[15:00]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[15:00]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[15:01]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[15:01]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[15:01]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[15:01]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[15:01]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[15:01]</span><span class="ogx-chat-name">•</span> Disconnected</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[15:01]</span><span class="ogx-chat-name">•</span> Error</div><div class="ogx-chat-msg"><span class="ogx-chat-time">[15:01]</span><span class="ogx-chat-name">•</span> Disconnected</div></div>
-  <div class="ogx-chat-foot">
-    <input id="ogxInput" type="text" maxlength="300" placeholder="Type message… (Enter to send)">
-    <button id="ogxSend">Send</button>
-  </div></div>
-  <script>
-  (function () {
-    const skinInput = document.getElementById('customSkin1');
-    const skinPreview = document.getElementById('skin-preview');
-    if (!skinInput || !skinPreview) return;
-  
-    let lastVal = "";
-
-    function sync() {
-      const value = (skinInput.value || "").trim();
-      if (value === lastVal) return;
-      lastVal = value;
-      skinPreview.style.backgroundImage = value ? `url("${value}")` : "none";
-    }
-
-    // catch both user edits and programmatic changes
-    skinInput.addEventListener("input", sync);
-    skinInput.addEventListener("change", sync);
-  
-    // simple polling to catch when main.bundle sets it on load
-    sync();
-    const interval = setInterval(() => {
-      if (!document.body.contains(skinInput)) {
-        clearInterval(interval);
-        return;
-      }
-      sync();
-    }, 300);
-  })();
-  </script>
-  <script>
-  (function () {
-    const nick1 = document.getElementById('nickname');
-    const nick2 = document.getElementById('nickname2');
-
-    if (!nick1 || !nick2) return;
-  
-    function sendNick(clientIndex, value) {
-      const m = window.multibox;
-      if (!m || !Array.isArray(m.clients)) return;
-      const client = m.clients[clientIndex];
-      if (!client) return;
-      try {
-        client.sendPlayerInfo({ nickname: value });
-      } catch (e) {
-        // ignore
-      }
-    }
-
-    // Nickname 1 → parent connection (clients[0])
-    nick1.addEventListener('input', () => {
-      const val = nick1.value.trim();
-      // let original listener do its thing,
-      // then enforce nick1 for parent explicitly:
-      sendNick(0, val);
-    });
-
-    // Nickname 2 → child connection (clients[1])
-    nick2.addEventListener('input', () => {
-      const val = nick2.value.trim();
-      sendNick(1, val);
-    });
-
-    // Periodic sync to override any default "same nick" sends
-    setInterval(() => {
-      const m = window.multibox;
-      if (!m || !m.clients || !m.clients.length) return;
-  
-      const v1 = nick1.value.trim();
-      const v2 = nick2.value.trim();
-
-      if (v1 && m.clients[0]) sendNick(0, v1);
-      if (v2 && m.clients[1]) sendNick(1, v2);
-    }, 1000);
-  })();
-  </script>
-
-
-
-<iframe src="./✖-Private_files/iframe.html" style="display: none;"></iframe></body></html>
+</body>
+</html>
